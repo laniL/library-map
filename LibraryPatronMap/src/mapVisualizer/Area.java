@@ -13,17 +13,7 @@ public class Area {
 	public Area(String name, int patronCount) {
 		this.name = name;
 		this.patronCount = patronCount;
-		// determine color
-		if (patronCount == 0)
-			this.setColor(50);
-		else if (patronCount < 5)
-			this.setColor(80);
-		else if (patronCount < 10)
-			this.setColor(110);
-		else if (patronCount < 15)
-			this.setColor(190);
-		else
-			this.setColor(220);
+		this.setColor();
 	}
 	
 	public void setName(String name) {
@@ -36,20 +26,27 @@ public class Area {
 	
 	public void setPatronCount(int p) {
 		patronCount = p;
+		this.setColor();
 	}
 	
 	public int getPatronCount() {
 		return patronCount;
 	}
-	
-	public void setColor(int[] c) {
-		color = c;
+		
+	public void setColor() {
+		// determine color based on patronCount
+		if (patronCount == 0)
+			color[3] = 20;
+		else if (patronCount < 5)
+			color[3] = 90;
+		else if (patronCount < 10)
+			color[3] = 130;
+		else if (patronCount < 15)
+			color[3] = 170;
+		else
+			color[3] = 210;
 	}
-	
-	public void setColor(int o) {
-		color[3] = o;
-	}
-	
+
 	public void setColor(int r, int g, int b) {
 		color[0] = r;
 		color[1] = g;

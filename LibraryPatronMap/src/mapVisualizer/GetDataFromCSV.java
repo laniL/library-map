@@ -49,7 +49,7 @@ public class GetDataFromCSV {
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
-        	System.out.println("FileNotFoundException\nPlease enter a valid path.");
+        	System.out.println("FileNotFoundException\nInvalid Path");
         } catch (IOException e) {
             e.printStackTrace();
             System.out.println("IOException");

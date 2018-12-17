@@ -1,17 +1,22 @@
 package mapVisualizer;
 
-public class Rectangle {
+public class Button {
 	private int x = 0;
 	private int y = 0;
 	private int width = 0;
 	private int height = 0;
-	private boolean over = false;
+	private String name = "";
 	
-	public Rectangle(int x, int y, int width, int height) {
+	public Button(String name, int x, int y, int width, int height) {
+		this.name = name;
 		this.x = x;
 		this.y = y;
 		this.width = width;
 		this.height = height;
+	}
+	
+	public String getName() {
+		return name;
 	}
 	
 	public void setXCoordinate(int x) {
@@ -46,19 +51,10 @@ public class Rectangle {
 		return height;
 	}
 	
-	public void rollover(int posx, int posy) {
+	public boolean isOver(int posx, int posy) {
 		if (posx > this.getXCoordinate() && posx < this.getXCoordinate() + this.getWidth() && 
 			posy > this.getYCoordinate() && posy < this.getYCoordinate() + this.getHeight())
-				over = true;
-		else over = false;
+				return true;
+		return false;
 	}
-	
-	public boolean isOver() {
-		return over;
-	}
-	
-	public String toString() {
-		return "Coordinates: " + this.getXCoordinate() + ", " + this.getYCoordinate();
-	}
-	
 }
